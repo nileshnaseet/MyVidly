@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoshVidly", "Vidly\MoshVidly.csproj", "{295707EF-F8B0-4480-8538-B47844A263B4}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyVidly", "MyVidly\MyVidly.csproj", "{CAABC947-32EA-447A-AA21-8D5294107228}"
 EndProject
 Global
@@ -14,12 +12,6 @@ Global
 		Testing|Any CPU = Testing|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{295707EF-F8B0-4480-8538-B47844A263B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{295707EF-F8B0-4480-8538-B47844A263B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{295707EF-F8B0-4480-8538-B47844A263B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{295707EF-F8B0-4480-8538-B47844A263B4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{295707EF-F8B0-4480-8538-B47844A263B4}.Testing|Any CPU.ActiveCfg = Testing|Any CPU
-		{295707EF-F8B0-4480-8538-B47844A263B4}.Testing|Any CPU.Build.0 = Testing|Any CPU
 		{CAABC947-32EA-447A-AA21-8D5294107228}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CAABC947-32EA-447A-AA21-8D5294107228}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CAABC947-32EA-447A-AA21-8D5294107228}.Release|Any CPU.ActiveCfg = Release|Any CPU
