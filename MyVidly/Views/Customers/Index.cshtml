@@ -1,0 +1,21 @@
+﻿@model MyVidly.ViewModels.CustomerFormViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Customers</h2>
+
+@if (Model.Customers.Count == 0)
+{
+    <text>We don't have any customers yet.</text>
+}
+
+<table class="table table-­‐bordered table-­‐hover">
+    @foreach (var cust in Model.Customers)
+    {
+        <tr>
+            <td>@Html.ActionLink(cust.Name, "Edit", new { Id = cust.Id })</td>
+        </tr>
+    }
+</table>

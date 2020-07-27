@@ -1,9 +1,30 @@
-﻿@model MyVidly.Models.Movie
+﻿@model MyVidly.ViewModels.RandomMovieViewModel
+
+@*
+    This is a comment
+    On multiple lines
+*@
+
 
 @{
-    ViewBag.Title = "Random";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    var className = Model.Customers.Count > 0 ? "popular" : null;
 }
 
-<h2>@Model.Name</h2>
+<h2 class="@className">@Model.Movie.Name</h2>
+
+@if (Model.Customers.Count == 0)
+{
+    <text>No one has rented this movie before.</text>
+}
+else
+{
+    <table class="table table-­‐bordered table-­‐hover">
+        @foreach (var customer in Model.Customers)
+        {
+            <tr>
+                <td>@customer.Name</td>
+            </tr>
+        }
+    </table>
+}
 

@@ -1,4 +1,5 @@
 ﻿using MyVidly.Models;
+using MyVidly.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,27 @@ namespace MyVidly.Controllers
         // GET: Movies
         public ActionResult Random()
         {
-            var movie = new Movie { Name = "Baahubali!" };
+            var movie = new Movie() { Name = "Shrek!" };
+            var customers = new List<Customer>
+            {
+                new Customer { Name = "Customer 1" },
+                new Customer { Name = "Customer 2" }
+            };
+
+            var viewModel = new RandomMovieViewModel
+            {
+                Movie = movie,
+                Customers = customers
+            };
+
+            return View(viewModel);
+        }
+        public ActionResult Index()
+        {
+            var movie = new List<Movie>();
+
+            movie.Add(new Movie { Name = "Baahubali Part 1" });
+            movie.Add(new Movie { Name = "Baahubali Part 2" });
 
             return View(movie);
         }
