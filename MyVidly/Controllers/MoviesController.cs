@@ -5,11 +5,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Data.Entity;
 
 namespace MyVidly.Controllers
 {
     public class MoviesController : Controller
     {
+        private VidlyContext _context;
+
+        public MoviesController()
+        {
+            _context = new VidlyContext();
+        }
         // GET: Movies
         public ActionResult Random()
         {
@@ -30,11 +37,9 @@ namespace MyVidly.Controllers
         }
         public ActionResult Index()
         {
-            var movie = new List<Movie>();
-
-            movie.Add(new Movie { Name = "Baahubali Part 1" });
-            movie.Add(new Movie { Name = "Baahubali Part 2" });
-
+            //var movie = new  List<Movie>();
+            var movie = _context.Movie.Include(c => c.Genre).ToList();
+            
             return View(movie);
         }
 
@@ -42,6 +47,13 @@ namespace MyVidly.Controllers
         public ActionResult ByReleaseYear(int year, int month)
         { 
             return Content(String.Format("Year={0} & Month = {1}",year,month));
+        }
+
+        public ActionResult Details(int id)
+        {
+            var movie = _context.Movie.Include(m => m.Genre).SingleOrDefault(c => c.Id == id);
+            
+            return View(movie);
         }
     }
 }

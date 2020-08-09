@@ -25,6 +25,8 @@ namespace MyVidly.Models
     {
         public DbSet<Customer> Customer { get; set; }
         public DbSet<Movie> Movie { get; set; }
+
+        public DbSet<Genre> Genre { get; set; }
         public VidlyContext()
            : base("VidlyContext", throwIfV1Schema: false)
         {

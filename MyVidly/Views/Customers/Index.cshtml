@@ -1,4 +1,4 @@
-﻿@model MyVidly.ViewModels.CustomerFormViewModel
+﻿@model IEnumerable<MyVidly.Models.Customer>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -6,16 +6,25 @@
 
 <h2>Customers</h2>
 
-@if (Model.Customers.Count == 0)
+@if (Model == null)
 {
     <text>We don't have any customers yet.</text>
 }
 
 <table class="table table-­‐bordered table-­‐hover">
-    @foreach (var cust in Model.Customers)
-    {
+    <thead>
         <tr>
-            <td>@Html.ActionLink(cust.Name, "Edit", new { Id = cust.Id })</td>
+            <th>Name</th>
+            <th>Membership Type</th>
         </tr>
-    }
+    </thead>
+    <tbody>
+        @foreach (var cust in Model)
+        {
+            <tr>
+                <td>@Html.ActionLink(cust.Name, "Details", new { Id = cust.Id })</td>
+                <td>@cust.MembershipType.Name</td>
+            </tr>
+        }
+    </tbody>
 </table>

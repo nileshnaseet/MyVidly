@@ -220,8 +220,38 @@
     <Compile Include="Migrations\202007292049520_InitialModel.designer.cs">
       <DependentUpon>202007292049520_InitialModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202007301604448_AddedMembershipType.cs" />
+    <Compile Include="Migrations\202007301604448_AddedMembershipType.designer.cs">
+      <DependentUpon>202007301604448_AddedMembershipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202007301616185_PopulateMembershipTypes.cs" />
+    <Compile Include="Migrations\202007301616185_PopulateMembershipTypes.designer.cs">
+      <DependentUpon>202007301616185_PopulateMembershipTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008080428147_NameInMemebershipType.cs" />
+    <Compile Include="Migrations\202008080428147_NameInMemebershipType.designer.cs">
+      <DependentUpon>202008080428147_NameInMemebershipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008080434112_BirthDayInCustomer.cs" />
+    <Compile Include="Migrations\202008080434112_BirthDayInCustomer.designer.cs">
+      <DependentUpon>202008080434112_BirthDayInCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008080447005_MoviesPropertyAddedAndGenre.cs" />
+    <Compile Include="Migrations\202008080447005_MoviesPropertyAddedAndGenre.designer.cs">
+      <DependentUpon>202008080447005_MoviesPropertyAddedAndGenre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008080455349_GenreId.cs" />
+    <Compile Include="Migrations\202008080455349_GenreId.designer.cs">
+      <DependentUpon>202008080455349_GenreId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008080508138_GenreIdAdded.cs" />
+    <Compile Include="Migrations\202008080508138_GenreIdAdded.designer.cs">
+      <DependentUpon>202008080508138_GenreIdAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Genre.cs" />
+    <Compile Include="Models\MembershipType.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Models\VidlyContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -269,6 +299,8 @@
     <Content Include="Views\Shared\_NarBar.cshtml" />
     <Content Include="Views\Customers\Index.cshtml" />
     <Content Include="Views\Movies\Index.cshtml" />
+    <Content Include="Views\Customers\Details.cshtml" />
+    <Content Include="Views\Movies\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -289,6 +321,27 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202007292049520_InitialModel.resx">
       <DependentUpon>202007292049520_InitialModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007301604448_AddedMembershipType.resx">
+      <DependentUpon>202007301604448_AddedMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007301616185_PopulateMembershipTypes.resx">
+      <DependentUpon>202007301616185_PopulateMembershipTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008080428147_NameInMemebershipType.resx">
+      <DependentUpon>202008080428147_NameInMemebershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008080434112_BirthDayInCustomer.resx">
+      <DependentUpon>202008080434112_BirthDayInCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008080447005_MoviesPropertyAddedAndGenre.resx">
+      <DependentUpon>202008080447005_MoviesPropertyAddedAndGenre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008080455349_GenreId.resx">
+      <DependentUpon>202008080455349_GenreId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008080508138_GenreIdAdded.resx">
+      <DependentUpon>202008080508138_GenreIdAdded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
