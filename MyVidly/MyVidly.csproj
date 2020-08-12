@@ -248,6 +248,10 @@
     <Compile Include="Migrations\202008080508138_GenreIdAdded.designer.cs">
       <DependentUpon>202008080508138_GenreIdAdded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202008100503270_MembershipType.cs" />
+    <Compile Include="Migrations\202008100503270_MembershipType.designer.cs">
+      <DependentUpon>202008100503270_MembershipType.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Genre.cs" />
@@ -256,6 +260,8 @@
     <Compile Include="Models\VidlyContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\CustomerFormViewModel.cs" />
+    <Compile Include="ViewModels\MovieFormViewModel.cs" />
+    <Compile Include="ViewModels\NewCustomerViewModel.cs" />
     <Compile Include="ViewModels\RandomMovieViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -299,8 +305,10 @@
     <Content Include="Views\Shared\_NarBar.cshtml" />
     <Content Include="Views\Customers\Index.cshtml" />
     <Content Include="Views\Movies\Index.cshtml" />
-    <Content Include="Views\Customers\Details.cshtml" />
+    <Content Include="Views\Customers\Edit.cshtml" />
     <Content Include="Views\Movies\Details.cshtml" />
+    <Content Include="Views\Customers\CustomerForm.cshtml" />
+    <Content Include="Views\Movies\MovieForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -342,6 +350,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202008080508138_GenreIdAdded.resx">
       <DependentUpon>202008080508138_GenreIdAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008100503270_MembershipType.resx">
+      <DependentUpon>202008100503270_MembershipType.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

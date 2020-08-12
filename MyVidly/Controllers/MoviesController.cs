@@ -37,10 +37,56 @@ namespace MyVidly.Controllers
         }
         public ActionResult Index()
         {
-            //var movie = new  List<Movie>();
             var movie = _context.Movie.Include(c => c.Genre).ToList();
             
             return View(movie);
+        }
+
+        public ActionResult Edit(Movie movie)
+        {
+            var movieInDB = _context.Movie.Include(m => m.Genre).SingleOrDefault(c => c.Id == movie.Id);
+
+            var viewModel = new MovieFormViewModel(movieInDB)
+            {
+                Genres = _context.Genre
+            };
+
+            return View("MovieForm",viewModel);
+        }
+
+        public ActionResult New(Movie movie)
+        {
+            var movieInDB = _context.Movie.SingleOrDefault(c=>c.Id == movie.Id);
+
+            var viewModel = new MovieFormViewModel
+            {
+                Genres = _context.Genre
+            };
+
+            return View("MovieForm", viewModel);
+        }
+
+        [HttpPost]
+        public ActionResult Save(Movie movie)
+        {
+            if (movie.Id == 0)
+            {
+                movie.DateAdded = DateTime.Now;
+                _context.Movie.Add(movie);
+            }
+            else
+            {
+                var movieInDB = _context.Movie.Include(m => m.Genre).SingleOrDefault(c => c.Id == movie.Id);
+
+                movieInDB.Name = movie.Name;
+                movieInDB.ReleaseDate = movie.ReleaseDate;
+                movieInDB.GenreId = movie.GenreId;
+                movieInDB.NumberInStock = movie.NumberInStock;
+            }
+
+            _context.SaveChanges();
+
+            return RedirectToAction("Index","Movies");// View(movie);
         }
 
         [Route("movies/released/{year}/{month}")]

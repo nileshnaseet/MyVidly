@@ -30,16 +30,57 @@ namespace MyVidly.Controllers
 
             return View(customers);
         }
-        public ActionResult Details(int id)
+        public ActionResult Edit(int id)
         {
             var customer = _vidlyDBContext.Customer.SingleOrDefault(c => c.Id == id);
-            
+
             if (customer == null)
                 return HttpNotFound();
 
-            return View(customer);
+            var viewModel = new NewCustomerViewModel
+            {
+                Customer = customer,
+                MembershipTypes = _vidlyDBContext.MembershipType.ToList()
+            };
+
+            return View("CustomerForm", viewModel);
         }
-        
+
+        public ActionResult New()
+        {
+            var membershipTypes = _vidlyDBContext.MembershipType.ToList();
+
+            var viewModel = new NewCustomerViewModel
+            {
+                MembershipTypes = membershipTypes
+            };
+            return View("CustomerForm", viewModel);
+        }
+
+        [HttpPost]
+        public ActionResult Save(Customer customer)
+        {
+            if(customer.Id == 0)
+            {
+                _vidlyDBContext.Customer.Add(customer);
+
+            }
+            else
+            {
+                var customerInDB = _vidlyDBContext.Customer.Single(c => c.Id == customer.Id);
+
+                customerInDB.Name = customer.Name;
+                customerInDB.Birthdate = customer.Birthdate;
+                customerInDB.MembershipTypeId = customer.MembershipTypeId;
+                customerInDB.IsSubscribedToNewsletter = customer.IsSubscribedToNewsletter;
+
+                //TryUpdateModel(customerInDB);
+            }
+
+            _vidlyDBContext.SaveChanges();
+
+            return RedirectToAction("Index", "Customers");
+        }
         //private IEnumerable<Customer> GetCustomers()
         //{
         //    return new List<Customer>
