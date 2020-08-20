@@ -37,7 +37,8 @@ namespace MyVidly.Controllers
             if (customer == null)
                 return HttpNotFound();
 
-            var viewModel = new NewCustomerViewModel
+            //var viewModel = new NewCustomerViewModel
+            var viewModel = new CustomerFormViewModel
             {
                 Customer = customer,
                 MembershipTypes = _vidlyDBContext.MembershipType.ToList()
@@ -50,16 +51,29 @@ namespace MyVidly.Controllers
         {
             var membershipTypes = _vidlyDBContext.MembershipType.ToList();
 
-            var viewModel = new NewCustomerViewModel
+            //var viewModel = new NewCustomerViewModel
+            var viewModel = new CustomerFormViewModel
             {
+                Customer = new Customer(),
                 MembershipTypes = membershipTypes
             };
             return View("CustomerForm", viewModel);
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Customer customer)
         {
+            if (!ModelState.IsValid)
+            {
+                var viewModel = new CustomerFormViewModel
+                {
+                    Customer = customer,
+                    MembershipTypes = _vidlyDBContext.MembershipType.ToList()
+                };
+
+                return View("CustomerForm", viewModel);
+            }
             if(customer.Id == 0)
             {
                 _vidlyDBContext.Customer.Add(customer);
