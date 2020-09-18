@@ -26,13 +26,15 @@ namespace MyVidly.Controllers
         // GET: Customers
         public ActionResult Index()
         {
-            var customers = _vidlyDBContext.Customer.Include(c => c.MembershipType).ToList();
+            // Commeting below code as it's directly fetched from Web API using AJAX calls
+            //var customers = _vidlyDBContext.Customer.Include(c => c.MembershipType).ToList();
+            //return View(customers);
 
-            return View(customers);
+            return View();
         }
         public ActionResult Edit(int id)
         {
-            var customer = _vidlyDBContext.Customer.SingleOrDefault(c => c.Id == id);
+            var customer = _vidlyDBContext.Customers.SingleOrDefault(c => c.Id == id);
 
             if (customer == null)
                 return HttpNotFound();
@@ -76,12 +78,12 @@ namespace MyVidly.Controllers
             }
             if(customer.Id == 0)
             {
-                _vidlyDBContext.Customer.Add(customer);
+                _vidlyDBContext.Customers.Add(customer);
 
             }
             else
             {
-                var customerInDB = _vidlyDBContext.Customer.Single(c => c.Id == customer.Id);
+                var customerInDB = _vidlyDBContext.Customers.Single(c => c.Id == customer.Id);
 
                 customerInDB.Name = customer.Name;
                 customerInDB.Birthdate = customer.Birthdate;

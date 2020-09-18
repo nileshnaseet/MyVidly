@@ -37,9 +37,9 @@ namespace MyVidly.Controllers
         }
         public ActionResult Index()
         {
-            var movie = _context.Movie.Include(c => c.Genre).ToList();
+            //var movie = _context.Movie.Include(c => c.Genre).ToList();
             
-            return View(movie);
+            return View();
         }
 
         public ActionResult Edit(Movie movie)

@@ -23,7 +23,7 @@ namespace MyVidly.Models
 
     public class VidlyContext : IdentityDbContext<ApplicationUser>
     {
-        public DbSet<Customer> Customer { get; set; }
+        public DbSet<Customer> Customers { get; set; }
         public DbSet<Movie> Movie { get; set; }
 
         public DbSet<Genre> Genre { get; set; }
